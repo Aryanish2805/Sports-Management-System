@@ -36,10 +36,6 @@ npm install
 npm run dev
 ```
 
-### 3. Default URLs
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:5000/api
-
 ## API Endpoints
 | Method | Endpoint | Description |
 |---|---|---|
