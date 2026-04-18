@@ -4,12 +4,12 @@ import { useEffect, useState, useRef } from 'react';
 
 /* ── Fake live ticker data ── */
 const TICKER_ITEMS = [
-  '🔴 LIVE · FC Blossoms 3 – 1 Pink Panthers',
-  '🏀 Halftime · Rose City Ballers vs Magenta Hawks',
-  '⚽ FT · Flamingo United 2 – 2 Petal FC',
-  '🏏 LIVE · Pink Warriors 87/3 (14 overs)',
-  '🎾 Set 3 · L. Rosenfeld 6–4 · A. Florens 3–6',
-  '🏐 LIVE · Blossom Spikers 18 – 22 Neon Roses',
+  '🏏 LIVE · CSK 184/5 (19.2) vs RCB',
+  '🏏 FT · MI won by 4 wickets against KKR',
+  '🏏 LIVE · RR 110/2 (12) vs SRH',
+  '⚽ FT · Mohun Bagan SG 2 – 1 Mumbai City FC',
+  '🏏 Innings Break · DC 198/4 (20) vs PBKS',
+  '🏑 LIVE · India 3 – 1 Australia (Q3)',
 ];
 
 /* ── Animated counter hook ── */
@@ -30,12 +30,12 @@ function useCounter(target, duration = 2000, trigger) {
 }
 
 const FEATURES = [
-  { icon: '🏆', title: 'Tournament Hub', desc: 'Create and manage multi-sport tournaments with bracket and league formats in one elegant dashboard.' },
-  { icon: '👥', title: 'Team Registration', desc: 'Streamlined roster management with role-based access for managers, players, and spectators.' },
-  { icon: '📅', title: 'Smart Scheduling', desc: 'AI-assisted match scheduling that avoids conflicts and optimises venue usage automatically.' },
-  { icon: '📊', title: 'Live Leaderboards', desc: 'Real-time score updates with auto-recalculated standings, points tables, and stats.' },
-  { icon: '🎯', title: 'Match Analytics', desc: 'Deep performance insights, heatmaps and per-player stat breakdowns after every game.' },
-  { icon: '🔔', title: 'Instant Alerts', desc: 'Push & email notifications for match start, score changes, and tournament milestones.' },
+  { icon: '🏆', title: 'Tournament Hub', path: '/tournaments', desc: 'Create and manage multi-sport tournaments with bracket and league formats in one elegant dashboard.' },
+  { icon: '👥', title: 'Team Registration', path: '/teams', desc: 'Streamlined roster management with role-based access for managers, players, and spectators.' },
+  { icon: '📅', title: 'Smart Scheduling', path: '/matches', desc: 'AI-assisted match scheduling that avoids conflicts and optimises venue usage automatically.' },
+  { icon: '📊', title: 'Live Leaderboards', path: '/leaderboard', desc: 'Real-time score updates with auto-recalculated standings, points tables, and stats.' },
+  { icon: '🎯', title: 'Match Analytics', path: '/matches', desc: 'Deep performance insights, heatmaps and per-player stat breakdowns after every game.' },
+  { icon: '🔔', title: 'Instant Alerts', path: '/dashboard', desc: 'Push & email notifications for match start, score changes, and tournament milestones.' },
 ];
 
 const SPORTS = ['⚽ Football', '🏏 Cricket', '🏀 Basketball', '🎾 Tennis', '🏐 Volleyball', '🏑 Hockey', '🏸 Badminton', '🥊 Boxing'];
@@ -117,7 +117,7 @@ export default function Home() {
           <div className="hp-hero-visual">
             {/* Main image with live overlay effects */}
             <div className="hp-hero-img-wrap">
-              <img src="/hero-sports.png" alt="Sports Arena" className="hp-hero-img" />
+              <img src="/attractive-sports.png" alt="Sports Equipment Theme" className="hp-hero-img" />
               {/* Animated pink-blue gradient overlay */}
               <div className="hp-hero-img-glow" />
               <div className="hp-img-overlay" />
@@ -142,12 +142,12 @@ export default function Home() {
             </div>
             {/* Floating live card */}
             <div className="hp-float-card hp-float-card-top">
-              <span className="hp-live-dot" />
+              <span className="hp-live-dot" style={{ backgroundColor: '#ffcc00' }} />
               <div>
-                <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>FC Blossoms vs Pink Panthers</div>
-                <div style={{ fontSize: '0.75rem', opacity: 0.7 }}>Quarter Final · 73&#39;</div>
+                <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>CSK vs RCB</div>
+                <div style={{ fontSize: '0.75rem', opacity: 0.7 }}>IPL 2026 · LIVE · 18.4 Overs</div>
               </div>
-              <div className="hp-float-score">3 – 1</div>
+              <div className="hp-float-score" style={{ fontSize: '1.1rem', whiteSpace: 'nowrap', marginLeft: '15px' }}>192/4</div>
             </div>
             <div className="hp-float-card hp-float-card-bot">
               <span style={{ fontSize: '1.4rem' }}>🏆</span>
@@ -189,11 +189,11 @@ export default function Home() {
           </div>
           <div className="hp-features-grid">
             {FEATURES.map((f, i) => (
-              <div className="hp-feature-card" key={i} style={{ '--delay': `${i * 80}ms` }}>
+              <Link to={f.path} className="hp-feature-card" key={i} style={{ '--delay': `${i * 80}ms`, textDecoration: 'none', color: 'inherit', display: 'block' }}>
                 <div className="hp-feature-icon">{f.icon}</div>
                 <h4 className="hp-feature-title">{f.title}</h4>
                 <p className="hp-feature-desc">{f.desc}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
