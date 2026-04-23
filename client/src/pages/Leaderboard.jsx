@@ -43,7 +43,7 @@ const Leaderboard = () => {
           <div className="d-flex gap-2 flex-wrap">
             {tournaments.map(t => (
               <button key={t._id} onClick={() => setSelectedTournament(t._id)}
-                style={{ padding: '8px 20px', borderRadius: 50, border: selectedTournament === t._id ? '1.5px solid var(--primary)' : '1.5px solid var(--border)', fontWeight: 600, fontSize: '0.82rem', cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.2s', background: selectedTournament === t._id ? 'var(--pink-100)' : 'var(--pink-50)', color: selectedTournament === t._id ? 'var(--primary-dark)' : 'var(--text-muted)' }}>
+                style={{ padding: '8px 20px', borderRadius: 50, border: selectedTournament === t._id ? '1.5px solid var(--accent)' : '1.5px solid var(--border)', fontWeight: 600, fontSize: '0.82rem', cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.2s', background: selectedTournament === t._id ? 'rgba(56,189,248,0.12)' : 'rgba(255,255,255,0.04)', color: selectedTournament === t._id ? 'var(--accent)' : 'var(--text-muted)' }}>
                 {sportEmoji[t.sport_type] || '🏅'} {t.name}
               </button>
             ))}
@@ -57,7 +57,7 @@ const Leaderboard = () => {
             <span style={{ fontSize: '2rem' }}>{sportEmoji[currentTournament.sport_type] || '🏅'}</span>
             <div>
               <h5 style={{ fontWeight: 800, margin: 0, color: 'var(--text-dark)' }}>{currentTournament.name}</h5>
-              <span style={{ color: 'var(--primary-dark)', fontSize: '0.8rem', fontWeight: 600 }}>{currentTournament.sport_type} · {currentTournament.format?.replace('_',' ')}</span>
+              <span style={{ color: 'var(--accent)', fontSize: '0.8rem', fontWeight: 600 }}>{currentTournament.sport_type} · {currentTournament.format?.replace('_',' ')}</span>
             </div>
           </div>
         )}
@@ -81,14 +81,14 @@ const Leaderboard = () => {
                   const heights = { 1: 140, 2: 110, 3: 90 };
                   const medals = { 1: '🥇', 2: '🥈', 3: '🥉' };
                   const gradients = {
-                    1: 'linear-gradient(135deg, #f9a8d4, #f472b6)',
-                    2: 'linear-gradient(135deg, #fce7f3, #fbcfe8)',
-                    3: 'linear-gradient(135deg, #fbcfe8, #f9a8d4)',
+                    1: 'linear-gradient(135deg, #0f172a, #1e293b)',
+                    2: 'linear-gradient(135deg, #0a0a0f, #18181f)',
+                    3: 'linear-gradient(135deg, #111118, #1e1e28)',
                   };
                   const textColors = {
-                    1: '#fff',
-                    2: 'var(--primary-dark)',
-                    3: 'var(--primary-dark)',
+                    1: '#38bdf8',
+                    2: '#94a3b8',
+                    3: '#cbd5e1',
                   };
                   if (!s) return <div key={idx} className="col-4" />;
                   return (
@@ -120,7 +120,7 @@ const Leaderboard = () => {
                 </thead>
                 <tbody>
                   {standings.map((s, i) => (
-                    <tr key={s._id} style={{ background: i === 0 ? 'var(--pink-100)' : '' }}>
+                    <tr key={s._id} style={{ background: i === 0 ? 'rgba(56,189,248,0.07)' : '' }}>
                       <td>
                         <div className={`rank-badge rank-${i < 3 ? i + 1 : 'other'}`}>{i + 1}</div>
                       </td>
@@ -128,7 +128,7 @@ const Leaderboard = () => {
                         <div className="d-flex align-items-center gap-2">
                           <div className="team-avatar" style={{ background: s.team?.logo_color || 'var(--grad-primary)', width: 34, height: 34, fontSize: '0.85rem', borderRadius: 9 }}>{s.team?.name?.charAt(0)}</div>
                           <span style={{ fontWeight: 600, color: 'var(--text-dark)' }}>{s.team?.name}</span>
-                          {i === 0 && <span style={{ fontSize: '0.7rem', background: 'var(--primary)', color: '#fff', padding: '2px 8px', borderRadius: 50, fontWeight: 700 }}>LEADER</span>}
+                          {i === 0 && <span style={{ fontSize: '0.7rem', background: 'var(--grad-primary)', color: '#fff', padding: '2px 8px', borderRadius: 50, fontWeight: 700 }}>LEADER</span>}
                         </div>
                       </td>
                       <td>{s.played}</td>

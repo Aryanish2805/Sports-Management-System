@@ -2,6 +2,17 @@
 
 A full-stack **MERN** web application to manage sports tournaments end-to-end.
 
+## Screenshots
+
+<div align="center">
+  <img src="assests/Home.png" alt="Home Page" width="48%">
+  <img src="assests/Tournament.png" alt="Tournaments Page" width="48%">
+  <br>
+  <img src="assests/Login.png" alt="Login Page" width="48%">
+  <img src="assests/Register.png" alt="Registration Page" width="48%">
+</div>
+
+
 ## Tech Stack
 - **Frontend**: React JS + Vite + Bootstrap 5
 - **Backend**: Node.js + Express.js
